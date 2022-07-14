@@ -12,6 +12,11 @@ export function App() {
     author="Sina Stiller"
     content="Teste numero 2"
   />
+
+      <Post
+        author="Thais Golin"
+        content="Teste numero 3"
+      />
 </div>
   )
 }
