@@ -41,6 +41,7 @@ export function Post() {
        <Comment />
        <Comment />
        <Comment />
+       <Comment />
       </div>
 
     </article>
