@@ -1,15 +1,23 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { PaintBrushHousehold } from 'phosphor-react';
+import { useState } from 'react';
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
+
 import styles from './Post.module.css';
 
 export function Post({author, publishedAt, content}) {
-  const publishedDateFormat = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {locale: ptBR}); 
+  const [comments, setComments] = useState([1,2]);
 
-  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true})
+  const publishedDateFormat = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {locale: ptBR}); 
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
+
+  function handleCreateNewComment() {
+    event.preventDefault();
+
+    setComments([...comments, comments.length++]);
+  }
 
   return (
     <article className={styles.post}>
@@ -37,7 +45,8 @@ export function Post({author, publishedAt, content}) {
         })}
       </div>
 
-      <form className={styles.commentForm}>
+{/* Formualrio do comentario */}
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <textarea 
          placeholder='Deixe um comentário'
         />
@@ -46,8 +55,11 @@ export function Post({author, publishedAt, content}) {
         </footer>
       </form>
 
+{/* Mostrando o comentario na tela */}
       <div className={styles.commentList}>
-       <Comment />
+       {comments.map(comment => {
+        return <Comment />
+       })}
       </div>
 
     </article>
