@@ -14,6 +14,7 @@ export function Post({author, publishedAt, content}) {
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
 
    const [newCommentText, setNewCommentText] = useState('');
+
   // Funcao para adicionar novos comentarios
   function handleCreateNewComment() {
     event.preventDefault();
@@ -23,8 +24,23 @@ export function Post({author, publishedAt, content}) {
   }
 
   function handleNewCommentChange() {
+    event.target.setCustomValidity('')
    setNewCommentText( event.target.value);
   }
+
+  function handleNewCommentInvalid() {
+   event.target.setCustomValidity('Campo obrigatório!')
+  }
+
+  function deleteComment(commentToDelete) {
+    const commentsWithoutDeletedOne = comments.filter(comment => {
+      return comment !== commentToDelete;
+    })
+
+   setComments(commentsWithoutDeletedOne);
+  }
+
+  const isNewCommentEmpty = newCommentText.length === 0;
   // -------
 
   return (
@@ -55,21 +71,25 @@ export function Post({author, publishedAt, content}) {
 
 {/* Formualrio do comentario */}
       <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
+        <strong>Deixe seu feedback</strong>
+        
         <textarea
         name='input'
          placeholder='Deixe um comentário'
          value={newCommentText}
          onChange={(handleNewCommentChange)}
+         onInvalid={handleNewCommentInvalid}
+         required
         />
         <footer>
-         <button type='submit'>Publicar</button>
+         <button type='submit' disabled={isNewCommentEmpty}>Publicar</button>
         </footer>
       </form>
 
 {/* Mostrando o comentario na tela */}
       <div className={styles.commentList}>
        {comments.map(comment => {
-        return <Comment key={comment} content={comment}/>
+        return <Comment key={comment} content={comment} onDeleteComment={deleteComment}/>
        })}
       </div>
 
