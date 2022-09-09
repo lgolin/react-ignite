@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
 
+  margin-bottom: 54px;
+
   position: relative;
   top: -30px;
 }
@@ -11,6 +13,10 @@
   outline: transparent;
   box-shadow: 0 0 0 2px var(--purple-500);
   color: var(--grey-100);
+}
+
+.search input button {
+  max-width: 47.5rem;
 }
 
 input {

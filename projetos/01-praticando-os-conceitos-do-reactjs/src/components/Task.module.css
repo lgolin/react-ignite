@@ -1,0 +1,79 @@
+.container {
+  width: 52.5rem;
+  height: 18.75rem;
+  margin: 0 auto;
+}
+
+.firstLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.tasks,
+.done {
+  font-size: 0.875rem;
+}
+
+.tasks {
+  font-weight: 700;
+  color: var(--blue-500);
+}
+
+.done {
+  font-weight: 700;
+  color: var(--purple-500);
+}
+
+span {
+  background-color: var(--grey-400);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: 8px;
+  font-size: 0.75rem;
+
+  color: var(--grey-200);
+}
+
+hr {
+  margin-top: 24px;
+
+  height: 30px;
+  border-style: solid;
+  border-color: var(--grey-400);
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+
+hr:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: var(--grey-400);
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+.containerTasks {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.containerTasks img {
+  margin-top: 64px;
+  height: 56px;
+  width: 56px;
+  margin-bottom: 16px;
+}
+
+.containerTasks p {
+  color: var(--grey-300);
+}
+
+.containerTasks p:first-of-type {
+  font-weight: 700;
+}
