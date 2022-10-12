@@ -19,7 +19,7 @@
   max-width: 47.5rem;
 }
 
-input {
+.search input {
   width: 43.75rem;
   padding: 1rem 0;
   background-color: var(--grey-500);
@@ -29,24 +29,25 @@ input {
   margin-right: 1rem;
   padding-left: 1rem;
 
-  color: var(--grey-400);
+  color: var(--grey-100);
 }
 
-button {
+.search button[type=submit] {
   padding: 1rem 2rem;
   background-color: var(--blue-800);
   border-radius: var(--br);
   border: none;
+
+  transition: background-color 0.1s;
 }
 
-img {
+.search img {
   margin-left: 0.5rem;
   font-size: 1rem;
-
   position: relative;
   top: 2px;
 }
 
-button:hover {
+.search button[type=submit]:hover {
   background-color: var(--blue-500);
 }
