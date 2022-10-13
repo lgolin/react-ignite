@@ -2,7 +2,7 @@ import { PencilLine } from 'phosphor-react';
 
 import styles from './Sidebar.module.css';
 
-export default function Sidebar() {
+export function Sidebar() {
   return (
     <div>
       <aside className={styles.sidebar}>
