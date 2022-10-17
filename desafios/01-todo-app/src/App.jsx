@@ -1,11 +1,15 @@
-import { Input } from './components/Input';
+import { Header } from './components/Header';
+import { Search } from './components/Search';
+import { Task } from './components/Task';
 
-function App() {
+import './global.css';
+
+export function App() {
   return (
-    <>
-      <Input />
-    </>
+    <div>
+      <Header />
+      <Search />
+      {/* <Task /> */}
+    </div>
   );
 }
-
-export default App;
