@@ -7,22 +7,30 @@ import plus from '../assets/plus.svg';
 import { Task } from './Task';
 
 export function Search() {
-  const [items, setItems] = useState(['Eu sou um item']);
+  const [tasks, setTasks] = useState(['Eu sou um item']);
+  const [newItemTask, setNewItemTask] = useState('');
 
   // função para adicionar um novo item quando clicar enviar
   function handleCreateNewItem() {
     event.preventDefault();
 
-    const newItemText = event.target.item.value;
+    setTasks([...tasks, newItemTask]);
+    setNewItemTask('');
+  }
 
-    setItems([...items, newItemText]);
-    newItemText = '';
+  function handleNewItemChange() {
+    setNewItemTask(event.target.value);
   }
 
   return (
     <>
       <form onSubmit={handleCreateNewItem} className={styles.search}>
-        <input name="item" type="text" placeholder="Adicione uma nova tarefa" />
+        <input
+          name="item"
+          placeholder="Adicione uma nova tarefa"
+          value={newItemTask}
+          onChange={handleNewItemChange}
+        />
         <button type="submit">
           Criar<img src={plus}></img>
         </button>
@@ -30,7 +38,7 @@ export function Search() {
 
       <Task />
       {/* Percorrendo o array de items e mostrando na tela */}
-      {items.map((item) => {
+      {tasks.map((item) => {
         return (
           <>
             <TaskList content={item} />
