@@ -6,7 +6,10 @@ export function TaskList({ content }) {
     <section className={styles.container}>
       <div className={styles.taskListBox}>
         <div className={styles.box}>
-          <p>{content}</p>
+          <p>
+            <input type="checkbox" id="vehicle1" name="vehicle1" />
+            {content}
+          </p>
         </div>
         <button title="Deletar Task">
           <Trash size={24} />
