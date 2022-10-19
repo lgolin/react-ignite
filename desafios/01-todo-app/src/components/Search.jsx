@@ -28,8 +28,8 @@ export function Search() {
         </button>
       </form>
 
+      <Task />
       {/* Percorrendo o array de items e mostrando na tela */}
-
       {items.map((item) => {
         return (
           <>

@@ -9,7 +9,6 @@ export function App() {
     <div>
       <Header />
       <Search />
-      {/* <Task /> */}
     </div>
   );
 }
